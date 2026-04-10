@@ -10,9 +10,6 @@
       "destination": "/index.html"
     }
   ],
-  "functions": {
-    "api/index.py": {
-      "runtime": "vercel-python@0.1.0"
-    }
-  }
+  "cleanUrls": true,
+  "trailingSlash": false
 }
