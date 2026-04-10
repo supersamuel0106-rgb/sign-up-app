@@ -15,10 +15,13 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+# NOTE: 支援在生產環境下透過 /_/backend 路徑訪問
+# 如果是在 Vercel 環境下，會自動掛載到對應子路徑
 app = FastAPI(
     title="Scholarly API",
     description="Scholarly 使用者管理後端 API",
     version="1.0.0",
+    root_path=os.getenv("ROOT_PATH", ""),
 )
 
 # NOTE: 從環境變數讀取前端來源，支援多個來源與預設值
