@@ -11,10 +11,10 @@ export interface UserData {
 
 // NOTE: 後端 API 的 base URL
 // 開發時優先讀取環境變數，若無則依環境判斷：
-// 生產環境 (Vercel) 會透過 vercel.json rewrite 到 /_/backend
+// 生產環境 (Vercel) 前端與後端共用同一域名，/api/* 由 vercel.json routes 直接轉發
 // 本地開發預設指向本機 FastAPI 伺服器 (8000)
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL 
-  ?? (import.meta.env.PROD ? '/_/backend' : 'http://localhost:8000');
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+  ?? (import.meta.env.PROD ? '' : 'http://localhost:8000');
 
 interface UseUsersReturn {
   users: UserData[];
